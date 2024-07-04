@@ -7,6 +7,7 @@ let count=0;
 
 let enterBtn = document.getElementById("userInput");
 let addBtn = document.getElementById('addBtn');
+let list = document.getElementById('list');
 
 let submitHandler = (event) => {
     if (event.keyCode === 13) {
@@ -21,22 +22,23 @@ let submitHandlerClick = () => {
 }
 
 let deleteCode = (id) => {
-    // let codeToDelete = document.getElementById(id);
-    // codeToDelete.parentNode.removeChild;
-    alert(id);
+    let codeToDelete = document.getElementById(id);
+    codeToDelete.parentNode.removeChild(codeToDelete);
 }
 
 let addCode = (item) => {
     //add new code
     let codeToAdd = `<li id=newCode${count}>${item} <input type="checkbox" id="item${count}"></li>`;
     document.getElementById('list').innerHTML += codeToAdd;   
-
-    //housekeeping for deletion
-    const checkBoxBtn = document.getElementById(`item${count}`);
-    checkBoxBtn.addEventListener('click', deleteCode.bind(null, `newCode${count}`));
     count++; //incr count to keep ids unique
 }
 
+list.addEventListener('click', function(event) {
+    if (event.target.matches('input[type="checkbox"]')) {
+        const id = event.target.id.replace('item', 'newCode');
+        deleteCode(id);
+    }
+})
 
 enterBtn.addEventListener("keypress", submitHandler);
 addBtn.addEventListener('click', submitHandlerClick);
