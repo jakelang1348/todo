@@ -1,6 +1,5 @@
 const ENTER = 'e';
 const CLICK = 'c';
-let items= [];
 let count=0;
 
 
@@ -29,7 +28,8 @@ let deleteCode = (id) => {
 let addCode = (item) => {
     //add new code
     let codeToAdd = `<li id=newCode${count}>${item} <input type="checkbox" id="item${count}"></li>`;
-    document.getElementById('list').innerHTML += codeToAdd;   
+    document.getElementById('list').innerHTML += codeToAdd;
+    document.getElementById('userInput').value = "";
     count++; //incr count to keep ids unique
 }
 
