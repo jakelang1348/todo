@@ -3,7 +3,6 @@ const CLICK = 'c';
 let count=0;
 
 
-
 let enterBtn = document.getElementById("userInput");
 let addBtn = document.getElementById('addBtn');
 let list = document.getElementById('list');
@@ -24,6 +23,7 @@ let deleteCode = (id) => {
     let codeToDelete = document.getElementById(id);
     codeToDelete.parentNode.removeChild(codeToDelete);
 }
+
 
 let addCode = (item) => {
     //add new code
